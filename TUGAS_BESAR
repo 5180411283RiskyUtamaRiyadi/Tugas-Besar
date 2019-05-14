@@ -1,0 +1,321 @@
+#include <conio.h>
+#include <iostream>
+#include <stdlib.h>
+#include <string.h>
+using namespace std;
+struct data{
+char no[10],nama[20],alamat[35],jkelamin[10];
+char namadk[20],poli[30],tgl[12];
+};
+data batas[100];
+int a,b,c,d,aa,bb,cc,dd,aaa,bbb,ccc,ddd;
+
+//PASIEN
+void inputdatapasien()
+{    cout<<"\nJumlah Data Yang Akan diinput : ";cin>>b;
+  d=0;
+  for(c=0;c<b;c++){
+  d=d+1;
+  cout<<"\nData ke-"<<d<<endl;
+  cout<<"No.Pasien\t: ";cin>>batas[a].no;
+  cout<<"Nama\t: ";cin>>batas[a].nama;
+  cout<<"Alamat\t: ";cin>>batas[a].alamat;
+  cout<<"Jenis Kelamin\t: ";cin>>batas[a].jkelamin;
+  a++;}system("cls");}
+
+
+void lihatdatapasien()
+{int i,j;
+ cout<<"\n================================Menampilkan Data===============================\n\n";
+ cout<<"===============================================================================\n";
+ cout<<"|| No\t||\tNo_Psn\t||\tNama\t||\tAlamat\t||\tSex\t||\n";
+ j=0;
+ for(i=0;i<a;i++)
+ {j=j+1;
+  cout<<"===============================================================================\n";
+  cout<<"||"<<j<<"\t||";
+  cout<<batas[i].no<<"\t\t||";
+  cout<<batas[i].nama<<"\t\t||";
+  cout<<batas[i].alamat<<"\t\t||";
+  cout<<batas[i].jkelamin<<"\t\t||\n";
+  }
+  cout<<"=============================================================================== ";getch();system("cls");}
+
+void hapusdatapasien()
+{int x,y;
+ cout<<"Hapus data ke-";cin>>x;
+ y=x-1;
+ a--;
+ for(int i=y;i<a;i++)
+ {batas[i]=batas[i+1];}
+ system("cls");;
+ cout<<"\n\n\n\n\n\n\n\n\n++++++++++++++++++++++++++++++ Data ke-"<<x<<" Terhapus ++++++++++++++++++++++++++++++";
+ getch();system("cls");
+}
+
+void editdatapasien(){
+int k,l;
+cout<<"Masukan Data yang akan diedit : ";cin>>k;
+l=k-1;
+cout<<"No\t: ";cin>>batas[l].no;
+cout<<"Nama\t: ";cin>>batas[l].nama;
+cout<<"Alamat\t: ";cin>>batas[l].alamat;
+cout<<"Jenis Kelamin\t";cin>>batas[l].jkelamin;
+lihatdatapasien();
+}
+
+//POLI
+void inputdatapoli()
+{    cout<<"\nJumlah Data Yang Akan diinput : ";cin>>bb;
+  dd=0;
+  for(c=0;c<b;c++){
+  dd=dd+1;
+  cout<<"\nData ke-"<<dd<<endl;
+  cout<<"Poli\t: ";cin>>batas[aa].poli;
+  cout<<"Nama Dokter\t: ";cin>>batas[aa].namadk;
+  aa++;}system("cls");}
+
+void lihatdatapoli()
+{int ii,jj;
+ cout<<"\n=============Menampilkan Data=============\n\n";
+ cout<<"==========================================\n";
+ cout<<"|| No\t||\tPoli\t||\tNama\t||\n";
+ jj=0;
+ for(ii=0; ii<aa; ii++)
+ {jj=jj+1;
+  cout<<"==========================================\n";
+  cout<<"||"<<jj<<"\t||";
+  cout<<batas[ii].poli<<"\t\t||";
+  cout<<batas[ii].namadk<<"\t||\n";
+  }
+  cout<<"==========================================";getch();system("cls");}
+
+void hapusdatapoli()
+{int xx,yy;
+ cout<<"Hapus data ke-";cin>>xx;
+ yy=xx-1;
+ a--;
+ for(int i=yy;i<aa;i++)
+ {batas[i]=batas[i+1];}
+ system("cls");;
+ cout<<"\n\n\n\n\n\n\n\n\n++++++++++++++++++++++++++++++ Data ke-"<<xx<<" Terhapus ++++++++++++++++++++++++++++++";
+ getch();system("cls");
+}
+
+void editdatapoli(){
+int kk,ll;
+cout<<"Masukan Data yang akan diedit : ";cin>>kk;
+ll=kk-1;
+cout<<"Poli\t: ";cin>>batas[ll].poli;
+cout<<"Nama\t: ";cin>>batas[ll].namadk;
+lihatdatapoli();
+}
+
+
+//TRANSAKSI//
+void inputdatatransaksi()
+{    cout<<"\nJumlah Data Yang Akan diinput : ";cin>>bbb;
+  ddd=0;
+  for(ccc=0;ccc<bbb;ccc++){
+  ddd=ddd+1;
+  cout<<"\nData ke-"<<ddd<<endl;
+  cout<<"Tanggal Masuk : ";cin>>batas[aaa].tgl;
+  lihatdatapasien();
+  cout<<endl;
+  cout<<"Masukan Data Sesuai Tabel";
+  cout<<endl;
+
+  cout<<"Nama Pasien\t: ";cin>>batas[aaa].nama;
+  lihatdatapoli();
+  cout<<"Masukan Data Sesuai Tabel";
+  cout<<endl;
+
+  cout<<"Poli\t: ";cin>>batas[aaa].poli;
+  aaa++;}system("cls");}
+
+
+
+void lihatdatatransaksi()
+{int iii,jjj;
+ cout<<"\n==========================Menampilkan Data========================\n\n";
+ cout<<"==================================================================\n";
+ cout<<"|| No\t||\tTgl_Masuk\t||\tNama\t||\tPoli\t||\n";
+ jjj=0;
+ for(iii=0; iii<aaa; iii++)
+ {jjj=jjj+1;
+  cout<<"==================================================================\n";
+  cout<<"||"<<jjj<<"\t||";
+  cout<<batas[iii].tgl<<"\t\t\t||";
+  cout<<batas[iii].nama<<"\t\t||";
+  cout<<batas[iii].poli<<"\t\t||\n";
+  }
+  cout<<"===============================================================";getch();system("cls");}
+
+
+void hapusdatatransaksi()
+{int xxx,yyy;
+ cout<<"Hapus data ke-";cin>>xxx;
+ yyy=xxx-1;
+ aaa--;
+ for(int iii=yyy;iii<aaa;iii++)
+ {batas[iii]=batas[iii+1];}
+ system("cls");;
+ cout<<"\n\n\n\n\n\n\n\n\n++++++++++++++++++++++++++++++ Data ke-"<<xxx<<" Terhapus ++++++++++++++++++++++++++++++";
+ getch();system("cls");
+}
+
+void editdatatransaksi(){
+int kkk,lll;
+cout<<"Masukan Data yang akan diedit : ";cin>>kkk;
+lll=kkk-1;
+cout<<"Tanggal Masuk\t: ";cin>>batas[lll].tgl;
+cout<<"Nama\t: ";cin>>batas[lll].nama;
+cout<<"Poli\t: ";cin>>batas[lll].poli;
+lihatdatatransaksi();
+}
+
+//Menu Pasien//
+int maindatapasien()
+{     int pilih;
+ char w;
+ cout<<"\n\n\n\n\n===========================PENDATAAN PASIEN PUSKESMAS==========================\n\n";
+ getch();system("cls");
+  awal:
+  cout<<"\n================================ PILIHAN MENU =================================";
+  cout<<"\n1. Tambah data";
+  cout<<"\n2. Hapus Data";
+  cout<<"\n3. Lihat Data";
+  cout<<"\n4. Edit Data";
+  cout<<"\n5. Keluar";
+  cout<<"\n\nMasukkan Pilihan : ";
+  cin>>pilih;
+  if(pilih==1)
+   {system("cls");inputdatapasien();goto awal;}
+  if(pilih==2)
+   {system("cls");hapusdatapasien();goto awal;}
+  if(pilih==3)
+   {system("cls");lihatdatapasien();goto awal;}
+  if(pilih==4)
+   {system("cls");editdatapasien();goto awal;}
+  if(pilih==5)
+   {system("cls");
+   cout<<"\n\n\n\n\n\n\n\n                     APAKAH ANDA YAKIN KELUAR DARI MENU INI??\n\n";
+   cout<<"                         [Y]                         [N]                  \n"<<endl;
+   cout<<"                                         ";cin>>w;
+   if(w=='y'||w=='Y')
+    {system("cls");}
+   if(w=='n'||w=='N')
+           {system("cls");goto awal;}}
+  else
+   {system("cls");cout<<"Pilihan 1-5";getch();system("cls");goto awal;}
+}
+
+//Menu Transaksi//
+int maindatatransaksi()
+{     int pilih;
+ char w;
+ cout<<"\n\n\n\n\n===========================TRANSAKSI PASIEN PUSKESMAS==========================\n\n";
+ getch();system("cls");
+  awal:
+  cout<<"\n================================ PILIHAN MENU =================================";
+  cout<<"\n1. Tambah data";
+  cout<<"\n2. Hapus Data";
+  cout<<"\n3. Lihat Data";
+  cout<<"\n4. Edit Data";
+  cout<<"\n5. Keluar";
+  cout<<"\n\nMasukkan Pilihan : ";
+  cin>>pilih;
+  if(pilih==1)
+   {system("cls");inputdatatransaksi();goto awal;}
+  if(pilih==2)
+   {system("cls");hapusdatatransaksi();goto awal;}
+  if(pilih==3)
+   {system("cls");lihatdatatransaksi();goto awal;}
+  if(pilih==4)
+   {system("cls");editdatatransaksi();goto awal;}
+  if(pilih==5)
+   {system("cls");
+   cout<<"\n\n\n\n\n\n\n\n                     APAKAH ANDA YAKIN KELUAR DARI MENU INI??\n\n";
+   cout<<"                         [Y]                         [N]                  \n"<<endl;
+   cout<<"                                         ";cin>>w;
+   if(w=='y'||w=='Y')
+    {system("cls");}
+   if(w=='n'||w=='N')
+           {system("cls");goto awal;}}
+  else
+   {system("cls");cout<<"Pilihan 1-5";getch();system("cls");goto awal;}
+}
+
+//Menu Poli//
+int maindatapoli()
+{     int pilih;
+ char w;
+ cout<<"\n\n\n\n\n=================================PENDATAAN POLI=================================\n\n";
+ getch();system("cls");
+  awal:
+  cout<<"\n================================ PILIHAN MENU =================================";
+  cout<<"\n1. Tambah data";
+  cout<<"\n2. Hapus Data";
+  cout<<"\n3. Lihat Data";
+  cout<<"\n4. Edit Data";
+  cout<<"\n5. Keluar";
+  cout<<"\n\nMasukkan Pilihan : ";
+  cin>>pilih;
+  if(pilih==1)
+   {system("cls");inputdatapoli();goto awal;}
+  if(pilih==2)
+   {system("cls");hapusdatapoli();goto awal;}
+  if(pilih==3)
+   {system("cls");lihatdatapoli();goto awal;}
+  if(pilih==4)
+   {system("cls");editdatapoli();goto awal;}
+  if(pilih==5)
+   {system("cls");
+   cout<<"\n\n\n\n\n\n\n\n                     APAKAH ANDA YAKIN KELUAR DARI MENU INI??\n\n";
+   cout<<"                         [Y]                         [N]                  \n"<<endl;
+   cout<<"                                         ";cin>>w;
+   if(w=='y'||w=='Y')
+    {system("cls");}
+   if(w=='n'||w=='N')
+           {system("cls");goto awal;}}
+  else
+   {system("cls");cout<<"Pilihan 1-5";getch();system("cls");goto awal;}
+}
+
+
+//Menu Awal//
+int main()
+{     int pilih;
+ char w;
+ cout<<"\n\n\n\n\n\n\n";
+ cout<<"\n\n\n\n\n=========================PROGRAM PENDAFTARAN PUSKESMAS=========================\n\n";
+ getch();system("cls");
+
+ pertama:
+  cout<<"\n=============================== PILIHAN MENU UTAMA =============================";
+  cout<<"\n1. Data Pasien";
+  cout<<"\n2. Data Poli";
+  cout<<"\n3. Transaksi";
+  cout<<"\n4. Keluar";
+  cout<<"\n\nMasukkan Pilihan : ";
+  cin>>pilih;
+  if(pilih==1)
+   {system("cls");maindatapasien();goto pertama;}
+  if(pilih==2)
+   {system("cls");maindatapoli();goto pertama;}
+  if(pilih==3)
+   {system("cls");maindatatransaksi();goto pertama;}
+  if(pilih==4)
+   {system("cls");
+   cout<<"\n\n\n\n\n\n\n\n                     APAKAH ANDA YAKIN KELUAR DARI PROGRAM??\n\n";
+   cout<<"                         [Y]                         [N]                  \n"<<endl;
+   cout<<"                                         ";cin>>w;
+   if(w=='y'||w=='Y')
+    {system("cls");
+    cout<<"\n\n\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PROGRAM SELESAI ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";}
+   if(w=='n'||w=='N')
+           {system("cls");goto pertama;}}
+  else
+   {system("cls");cout<<"Pilihan 1-4";getch();system("cls");goto pertama;}
+cout<<"\n\n\n\n\n\n\n\n\n\t\t\t     PROGRAM BY R.RIYADI\n\n";
+}
